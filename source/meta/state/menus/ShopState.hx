@@ -38,6 +38,7 @@ import sys.FileSystem;
 import sys.io.File;
 import sys.thread.Mutex;
 import sys.thread.Thread;
+import openfl.utils.Assets as OpenFlAssets;
 
 using StringTools;
 
@@ -151,7 +152,7 @@ class ShopState extends MusicBeatState
 		else
 			Discord.changePresence('CHOOSING A SONG', 'Freeplay Menu');
 
-		var rawJson = File.getContent(Paths.getPath('images/shop/shopText.json', TEXT)).trim();
+		var rawJson = OpenFlAssets.getText(Paths.getPath('images/shop/shopText.json', TEXT)).trim();
 		while (!rawJson.endsWith("}"))
 			rawJson = rawJson.substr(0, rawJson.length - 1);
 		shopLines = cast Json.parse(rawJson).shopLines;
@@ -308,9 +309,9 @@ class ShopState extends MusicBeatState
 		for (i in folderList)
 		{
 			trace('found folder: ' + i);
-			if (FileSystem.exists(Paths.getPath('images/shop/${i}/${i}.json', TEXT)))
+			if (OpenFlAssets.exists(Paths.getPath('images/shop/${i}/${i}.json', TEXT)))
 			{
-				var rawJson = File.getContent(Paths.getPath('images/shop/${i}/${i}.json', TEXT));
+				var rawJson = OpenFlAssets.getText(Paths.getPath('images/shop/${i}/${i}.json', TEXT));
 				var swagShit:ShopItem = cast Json.parse(rawJson).itemDetail;
 				itemArray.push(swagShit);
 
@@ -1578,7 +1579,7 @@ class ShopState extends MusicBeatState
 						if (portrait != null && portrait != curPortrait)
 						{
 							//  get the new portrait
-							if (!FileSystem.exists(Paths.getPath('images/menus/freeplay/$portrait.png', IMAGE)))
+							if (!OpenFlAssets.exists(Paths.getPath('images/menus/freeplay/$portrait.png', IMAGE)))
 								portrait = 'unknown';
 							mutex.acquire();
 							switchingPortraits = true;
