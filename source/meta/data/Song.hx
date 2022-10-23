@@ -53,7 +53,7 @@ class Song
 		if (library != null)
 			rawJson = Assets.getText(Paths.songJson(folder.toLowerCase(), jsonInput.toLowerCase(), PlayState.old, PlayState.songLibrary)).trim();
 		else 
-			rawJson = OpenFlAssets.getTxt(Paths.songJson(folder.toLowerCase(), jsonInput.toLowerCase(), PlayState.old, PlayState.songLibrary)).trim();
+			rawJson = OpenFlAssets.getText(Paths.songJson(folder.toLowerCase(), jsonInput.toLowerCase(), PlayState.old, PlayState.songLibrary)).trim();
 
 		while (!rawJson.endsWith("}"))
 			rawJson = rawJson.substr(0, rawJson.length - 1);
