@@ -3,6 +3,7 @@ package meta.data;
 import haxe.Json;
 import haxe.format.JsonParser;
 import lime.utils.Assets;
+import openfl.utils.Assets as OpenFlAssets;
 import meta.data.Section.SwagSection;
 import meta.state.PlayState;
 import sys.io.File;
@@ -52,7 +53,7 @@ class Song
 		if (library != null)
 			rawJson = Assets.getText(Paths.songJson(folder.toLowerCase(), jsonInput.toLowerCase(), PlayState.old, PlayState.songLibrary)).trim();
 		else 
-			rawJson = File.getContent(Paths.songJson(folder.toLowerCase(), jsonInput.toLowerCase(), PlayState.old, PlayState.songLibrary)).trim();
+			rawJson = OpenFlAssets.getTxt(Paths.songJson(folder.toLowerCase(), jsonInput.toLowerCase(), PlayState.old, PlayState.songLibrary)).trim();
 
 		while (!rawJson.endsWith("}"))
 			rawJson = rawJson.substr(0, rawJson.length - 1);
