@@ -135,7 +135,7 @@ class Paths
 			// do dumbshit
 			return FlxG.bitmap.add(path, true, path);
 		} else {
-			if (FileSystem.exists(path))
+			if (OpenFlAssets.exists(path))
 			{
 				if (!currentTrackedAssets.exists(key))
 				{
@@ -178,7 +178,7 @@ class Paths
 			if (library != null)
 				currentTrackedSounds.set(gottenPath, OpenFlAssets.getSound(getPath('$path/$key.$SOUND_EXT', SOUND, library)));
 			else
-				currentTrackedSounds.set(gottenPath, Sound.fromFile('./' + gottenPath));
+				currentTrackedSounds.set(gottenPath, Sound.fromFile(gottenPath));
 		}
 		localTrackedAssets.push(key);
 		return currentTrackedSounds.get(gottenPath);
@@ -210,7 +210,7 @@ class Paths
 
 	static function getPreloadPath(file:String) {
 		var returnPath:String = '$currentLevel/$file';
-		if (!FileSystem.exists(returnPath))
+		if (!OpenFlAssets.exists(returnPath))
 			returnPath = CoolUtil.swapSpaceDash(returnPath);
 		return returnPath;
 	}
@@ -282,7 +282,7 @@ class Paths
 		var graphic:FlxGraphic = returnGraphic(key, library, compression);
 		var fileContents;
 		if (library == null)
-			fileContents = File.getContent(file('images/$key.xml', library));
+			fileContents = OpenFlAssets.getText(file('images/$key.xml', library));
 		else
 			fileContents = Assets.getText(file('images/$key.xml', library));
 		return (FlxAtlasFrames.fromSparrow(graphic, fileContents));
