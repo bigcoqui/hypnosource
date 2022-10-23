@@ -68,8 +68,9 @@ class CoolUtil
 
 	public static function returnAssetsLibrary(library:String, ?subDir:String = 'assets/images'):Array<String>
 	{
-		//
 		var libraryArray:Array<String> = [];
+
+		#if !android
 		var unfilteredLibrary = FileSystem.readDirectory('$subDir/$library');
 
 		for (folder in unfilteredLibrary)
@@ -78,6 +79,7 @@ class CoolUtil
 				libraryArray.push(folder);
 		}
 		trace(libraryArray);
+		#end
 
 		return libraryArray;
 	}
