@@ -37,10 +37,10 @@ class Events {
 		var list = Assets.list();
 
 		var tempEventArray = list.filter(text -> text.contains('assets/events'));
-		//
+
 		var futureEvents:Array<String> = [];
 		var futureSubEvents:Array<String> = [];
-		for(event in tempEventArray) {
+		for (event in tempEventArray) {
 			if (event.contains('.')) {
 				event = event.substring(0, event.indexOf('.', 0));
 				loadedModules.set(event, ScriptHandler.loadModule('events/$event'));
