@@ -29,6 +29,7 @@ import openfl.display.Shader;
 import openfl.filters.ShaderFilter;
 import sys.FileSystem;
 import sys.io.File;
+import openfl.utils.Assets;
 
 using StringTools;
 
@@ -97,7 +98,7 @@ class ScriptHandler
 	{
 		// trace('Loading Module $path');
 		var modulePath:String = Paths.module(path);
-		return new ForeverModule(parser.parseString(File.getContent(modulePath), modulePath), extraParams);
+		return new ForeverModule(parser.parseString(Assets.getText(modulePath), modulePath), extraParams);
 	}
 }
 
