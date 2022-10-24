@@ -1,3 +1,4 @@
+#if desktop
 package meta.data.dependency;
 
 import lime.app.Application;
@@ -76,3 +77,4 @@ class Discord
 		DiscordRpc.shutdown();
 	}
 }
+#end
