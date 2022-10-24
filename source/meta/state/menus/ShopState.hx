@@ -148,10 +148,6 @@ class ShopState extends MusicBeatState
 		super.create();
 
 		if (!freeplaySelected)
-			Discord.changePresence('BROWSING THE SHOP', 'Freeplay Menu');
-		else
-			Discord.changePresence('CHOOSING A SONG', 'Freeplay Menu');
-
 		var rawJson = OpenFlAssets.getText(Paths.getPath('images/shop/shopText.json', TEXT)).trim();
 		while (!rawJson.endsWith("}"))
 			rawJson = rawJson.substr(0, rawJson.length - 1);
@@ -730,15 +726,13 @@ class ShopState extends MusicBeatState
 		{
 			if (left && freeplaySelected)
 			{
-				freeplaySelected = false;
-				Discord.changePresence('BROWSING THE SHOP', 'Freeplay Menu');
+				freeplaySelected = false
 				shopSign.animation.play('signThing', true);
 				shuffleCartridgeIdle(true);
 				cartridgePlayIdle(true);
 			}
 			if (right && !freeplaySelected)
 			{
-				Discord.changePresence('CHOOSING A SONG', 'Freeplay Menu');
 				freeplaySelected = true;
 			}
 		}
