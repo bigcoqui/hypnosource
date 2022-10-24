@@ -50,7 +50,6 @@ class StoryMenuState extends MusicBeatState {
 
 		// "Simply use setProperty()" - BAnims
 
-		Discord.changePresence('STORY MODE', 'Main Menu');
 		ForeverTools.resetMenuMusic(true);
 
         gameboy = new FlxSprite();
