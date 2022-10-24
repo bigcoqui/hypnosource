@@ -36,7 +36,6 @@ import meta.MusicBeat.MusicBeatState;
 import meta.data.*;
 import meta.data.Section.SwagSection;
 import meta.data.Song.SwagSong;
-import meta.data.dependency.Discord;
 import meta.subState.charting.*;
 import openfl.events.Event;
 import openfl.events.IOErrorEvent;
