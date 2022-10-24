@@ -14,6 +14,7 @@ import flixel.tweens.misc.ColorTween;
 import flixel.util.FlxColor;
 import gameObjects.userInterface.HealthIcon;
 import lime.utils.Assets;
+import openfl.utils.Assets as OpenFlAssets;
 import meta.MusicBeat.MusicBeatState;
 import meta.data.*;
 import meta.data.Song.SwagSong;
@@ -73,7 +74,7 @@ class FreeplayState extends MusicBeatState
 				for (j in 0...2) {
 					var old:Bool = j == 0 ? true : false;
 					var icon:String = 'gf';
-					var chartExists:Bool = FileSystem.exists(Paths.songJson(i, i, old));
+					var chartExists:Bool = OpenFlAssets.exists(Paths.songJson(i, i, old));
 					if (chartExists)
 					{
 						var castSong:SwagSong = Song.loadFromJson(i, i, old);
@@ -148,8 +149,8 @@ class FreeplayState extends MusicBeatState
 		///*
 		var coolDifficultyArray = [];
 		for (i in CoolUtil.difficultyArray)
-			if (FileSystem.exists(Paths.songJson(songName, songName + '-' + i, old))
-				|| (FileSystem.exists(Paths.songJson(songName, songName, old)) && i == "NORMAL"))
+			if (OpenFlAssets.exists(Paths.songJson(songName, songName + '-' + i, old))
+				|| (OpenFlAssets.exists(Paths.songJson(songName, songName, old)) && i == "NORMAL"))
 				coolDifficultyArray.push(i);
 
 		if (coolDifficultyArray.length > 0)
