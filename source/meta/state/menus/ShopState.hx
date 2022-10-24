@@ -28,7 +28,6 @@ import meta.MusicBeat.MusicBeatState;
 import meta.data.Conductor;
 import meta.data.Highscore;
 import meta.data.Song;
-import meta.data.dependency.Discord;
 import meta.data.font.Alphabet;
 import meta.state.menus.FreeplayState;
 import meta.subState.UnlockSubstate.LockSprite;
