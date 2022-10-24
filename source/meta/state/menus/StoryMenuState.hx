@@ -12,7 +12,6 @@ import gameObjects.Character;
 import meta.MusicBeat.MusicBeatState;
 import meta.data.Highscore;
 import meta.data.Song;
-import meta.data.dependency.Discord;
 import overworld.OverworldStage;
 
 using StringTools;
