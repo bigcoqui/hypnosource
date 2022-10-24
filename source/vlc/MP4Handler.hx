@@ -1,5 +1,6 @@
 package vlc;
 
+#if !android
 import openfl.events.Event;
 import flixel.FlxG;
 import vlc.bitmap.VlcBitmap;
@@ -118,3 +119,4 @@ class MP4Handler extends VlcBitmap
 		#end
 	}
 }
+#end
