@@ -726,7 +726,7 @@ class ShopState extends MusicBeatState
 		{
 			if (left && freeplaySelected)
 			{
-				freeplaySelected = false
+				freeplaySelected = false;
 				shopSign.animation.play('signThing', true);
 				shuffleCartridgeIdle(true);
 				cartridgePlayIdle(true);
